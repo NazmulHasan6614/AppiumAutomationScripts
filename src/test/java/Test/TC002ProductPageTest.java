@@ -28,6 +28,7 @@ public class TC002ProductPageTest extends Base {
     {
         productObj.verifyAddToCartFunctionality(driver);
     }
+
     @Test(priority = 5)
     public void verifyCheckOutFunctionalityTest()
     {
