@@ -2,7 +2,10 @@ package Utils;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.TapOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -12,6 +15,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.Random;
+
+import static Test.Base.driver;
 
 
 public class ReusableMethods {
@@ -50,12 +55,17 @@ public class ReusableMethods {
         WebElement element = findElement(path, driver);
         element.sendKeys(text);
     }
-
     public static void selectByVisibleText(By locator, AppiumDriver driver, String visibleText) {
+        // Locate and click on the dropdown to open the options
         WebElement dropdownElement = driver.findElement(locator);
-        Select dropdown = new Select(dropdownElement);
-        dropdown.selectByVisibleText(visibleText);
+        dropdownElement.click();
+
+        // Locate the option by visible text and click it
+        WebElement optionElement = driver.findElement(By.xpath("//android.widget.TextView[@text='" + visibleText + "']"));
+        optionElement.click();
     }
+
+
     public static boolean ButtonEnableOrNot(By path, AppiumDriver driver)
     {
         WebElement element = findElement(path,driver);
