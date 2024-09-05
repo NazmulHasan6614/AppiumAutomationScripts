@@ -71,6 +71,11 @@ public class ReusableMethods {
         WebElement element = findElement(path,driver);
         return element.isEnabled();
     }
+    public static boolean isRadioButtonSelected(By path, AppiumDriver driver) {
+        WebElement element = driver.findElement(path);
+        return element.isSelected();
+    }
+
 
     public static void scrollIntoElementAndClick(By path, AppiumDriver driver) {
         // Scroll until the element is visible

@@ -27,4 +27,21 @@ public class TC005DashBoardTest extends Base{
     {
         dObj.verifySellCommission(driver);
     }
+    @Test(priority = 5)
+    public void verifyTargetFunctionalityTest()
+    {
+        dObj.verifyTargetFunctionality(driver);
+    }
+    @Test(priority = 6)
+    public void VerifyTargetCommissionTest()
+    {
+        dObj.VerifyTargetCommission(driver);
+    }
+    @Test(priority = 7)
+    public void verifyQuickActionSellsEntryTest()
+    {
+        dObj.verifyQuickActionSellsEntry(driver);
+    }
+
+
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/Admin/IdeaProjects/FastPowerDealerApp">
+        <classes>
+
+            <class name="Test.TC001LogInPageTest">
+                <methods>
+                    <include name="elementVerifyOfLoginPageTest"/>
+                    <include name="verifyLogInWithBothPasswordAndEmailNullTest"/>
+                    <include name="verifyLoginWithNullUserNameTest"/>
+                    <include name="verifyLoginWithNullPassWord"/>
+                    <include name="verifyLoginWithInvalidCredentialsTest"/>
+                    <include name="verifySuccessfulLoginWithValidCredentialsTest"/>
+                </methods>
+            </class>
+            <class name="Test.TC002ProductPageTest">
+                <methods>
+                    <include name="verifySuccessfulLoginWithValidCredentialsTest"/>
+                    <include name="verifyProductButtonIsEnableTest"/>
+                    <include name="verifyProductsDetailsTest"/>
+                    <include name="verifyAddToCartFunctionalityTest"/>
+                    <include name="verifyCheckOutFunctionalityTest"/>
+                </methods>
+            </class>
+            <class name="Test.TC003HistoryPageTest">
+                <methods>
+                    <include name="verifySuccessfulLoginWithValidCredentialsTest"/>
+                    <include name="verifyHistoryButtonEnableOrNotTest"/>
+                    <include name="verifyMyOrderDataIntegrationTest"/>
+                </methods>
+            </class>
+            <class name="Test.TC004StockPageTest">
+                <methods>
+                    <include name="verifySuccessfulLoginWithValidCredentialsTest"/>
+                    <include name="stockButtonEnableOrNotTest"/>
+                    <include name="verifyAllProductAreInStockPageTest"/>
+                    <include name="verifyStockHistoryTest"/>
+                </methods>
+            </class>
+            <class name="Test.TC005DashBoardTest">
+                <methods>
+                    <include name="verifySuccessfulLoginWithValidCredentialsTest"/>
+                    <include name="verifyTotalSellTest"/>
+                    <include name="verifySellAndCustomersDetailsTest"/>
+                    <include name="verifySellCommissionTest"/>
+                    <include name="verifyTargetFunctionalityTest"/>
+                    <include name="VerifyTargetCommissionTest"/>
+                    <include name="verifyQuickActionSellsEntryTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
