@@ -4,7 +4,7 @@ import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 
 public class DashBordObject {
-    public static By totalSellSpace= AppiumBy.androidUIAutomator("new UiSelector().description(\"6 পিস\n" +
+    public static By totalSellSpace= AppiumBy.androidUIAutomator("new UiSelector().description(\"7 পিস\n" +
             "টোটাল সেলস\")");
     public static By dropDown=AppiumBy.androidUIAutomator("new UiSelector().description(\"This Month\")");
     public static By options=AppiumBy.androidUIAutomator("new UiSelector().description(\"August\")");
@@ -40,6 +40,11 @@ public class DashBordObject {
     public static By purchaseButton=AppiumBy.xpath("(//android.view.View[@content-desc=\"বিক্রয় নিশ্চিত করুন\"])[2]");
     public static By orderSuccessMessage=AppiumBy.xpath("//android.view.View[@content-desc=\"বিক্রয় নিশ্চিত হয়েছে\"]");
     public static By customerName=AppiumBy.androidUIAutomator("new UiSelector().description(\"Nazmul\")");
+    public static By makePayment=AppiumBy.androidUIAutomator("new UiSelector().description(\"মেক \n" +
+            "পেমেন্ট\")");
+    public static By paymentMethod=AppiumBy.androidUIAutomator("new UiSelector().description(\"DBBL\")");
+    public static By paymentRadioButton=AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.RadioButton\")");
+    public static By paymentConfirmButton=AppiumBy.xpath("//android.view.View[@content-desc=\"পেইমেন্ট নিশ্চিত করুন\"]");
 
     //Data
     public static String customerPhoneNumber="01764233618";

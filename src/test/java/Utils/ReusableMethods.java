@@ -195,6 +195,19 @@ public class ReusableMethods {
         // Perform an action on the element
         driver.navigate().back();
     }
+    public static boolean isButtonClickable(By locator,AppiumDriver driver)
+    {
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+        try {
+            WebElement el=wait.until(ExpectedConditions.elementToBeClickable(locator));
+            return el.isDisplayed() && el.isEnabled();
+
+        }
+        catch (Exception e) {
+            return false; // Element is not clickable
+        }
+
+    }
 
 
 

@@ -42,6 +42,11 @@ public class TC005DashBoardTest extends Base{
     {
         dObj.verifyQuickActionSellsEntry(driver);
     }
+    @Test(priority = 8)
+    public void makePaymentFunctionalityTest()
+    {
+        dObj.makePaymentFunctionality(driver);
+    }
 
 
 }

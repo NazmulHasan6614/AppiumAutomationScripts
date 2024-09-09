@@ -64,7 +64,7 @@ public class DashBord {
 
     }
 
-    public void verifyQuickActionSellsEntry(AppiumDriver driver) {
+     public void verifyQuickActionSellsEntry(AppiumDriver driver){
         softAssert.assertTrue(ReusableMethods.ButtonEnableOrNot(sellsEntry, driver), "Sells entry is not enable");
         ReusableMethods.click(sellsEntry, driver);
         softAssert.assertTrue(ReusableMethods.verifyElementsPresent(sellsEntryProduct, driver), "No Sells Entry Found");
@@ -84,6 +84,14 @@ public class DashBord {
         ReusableMethods.click(backHomeButton,driver);
 
 
-
+    }
+    public void makePaymentFunctionality(AppiumDriver driver)
+    {
+        softAssert.assertTrue(ReusableMethods.ButtonEnableOrNot(makePayment,driver),"Make Payment Button is not Enable");
+        ReusableMethods.click(makePayment,driver);
+        softAssert.assertTrue(ReusableMethods.verifyElementsPresent(paymentMethod,driver),"No Payment Method is Available");
+        ReusableMethods.click(paymentMethod,driver);
+        softAssert.assertTrue(ReusableMethods.isRadioButtonSelected(paymentRadioButton,driver),"Radio Button is not Selected");
+        softAssert.assertFalse(ReusableMethods.isButtonClickable(paymentConfirmButton,driver),"Button Is Not Clickable");
     }
 }
