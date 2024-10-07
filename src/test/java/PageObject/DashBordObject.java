@@ -32,11 +32,11 @@ public class DashBordObject {
     public static By sellsEntry=AppiumBy.androidUIAutomator("new UiSelector().description(\"সেলস \n" +
             "এন্ট্রি\")");
     public static By sellsEntryProduct=AppiumBy.xpath("//android.widget.ImageView[contains(@content-desc, 'FastPower Easy Bike Battery - 12 V')]");
-    public static By sellsEntryCheckBox=AppiumBy.androidUIAutomator("new UiSelector().className(\"android.view.View\").instance(7)");
+    public static By sellsEntryCheckBox=AppiumBy.androidUIAutomator("new UiSelector().className(\"android.view.View\").instance(8)");
     public static By customerDetailsSearchField=AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.ImageView\").instance(1)");
     public static By customer=AppiumBy.xpath("//android.widget.ImageView[contains(@content-desc, '01764233618')]");
     public static By confirmRadioBox=AppiumBy.xpath("//android.view.View[@content-desc=\"আমি সকল তথ্য সঠিক ভাবে যাচাই বাছাই করে বিক্রয় নিশ্চিত করছি\"]");
-    public static By radioBox=AppiumBy.androidUIAutomator("new UiSelector().className(\"android.view.View\").instance(17)");
+    public static By radioBox=AppiumBy.xpath("//android.view.View[@content-desc=\"আমি সকল তথ্য সঠিক ভাবে যাচাই বাছাই করে বিক্রয় নিশ্চিত করছি\"]/android.widget.ImageView");
     public static By purchaseButton=AppiumBy.xpath("(//android.view.View[@content-desc=\"বিক্রয় নিশ্চিত করুন\"])[2]");
     public static By orderSuccessMessage=AppiumBy.xpath("//android.view.View[@content-desc=\"বিক্রয় নিশ্চিত হয়েছে\"]");
     public static By customerName=AppiumBy.androidUIAutomator("new UiSelector().description(\"Nazmul\")");
@@ -45,8 +45,15 @@ public class DashBordObject {
     public static By paymentMethod=AppiumBy.androidUIAutomator("new UiSelector().description(\"DBBL\")");
     public static By paymentRadioButton=AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.RadioButton\")");
     public static By paymentConfirmButton=AppiumBy.xpath("//android.view.View[@content-desc=\"পেইমেন্ট নিশ্চিত করুন\"]");
+    public static By transactionField=AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[1]");
+    public static By amountField=AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[2]");
+    public static By documentField=AppiumBy.androidUIAutomator("new UiSelector().description(\"ডকুমেন্ট আপলোড করুন\n" +
+            "Max size 10 MB\")");
+    public static By document=AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"com.google.android.providers.media.module:id/icon_thumbnail\").instance(0)");
 
     //Data
     public static String customerPhoneNumber="01764233618";
+    public static String trxId="Trx542";
+    public static String amount="343";
 
 }

@@ -2,11 +2,13 @@ package Pages;
 
 import Utils.ReusableMethods;
 import io.appium.java_client.AppiumDriver;
+import org.testng.asserts.SoftAssert;
 
 import static PageObject.ProductPageObject.*;
 import static org.testng.Assert.assertTrue;
 
 public class ProductPage {
+    SoftAssert softAssert=new SoftAssert();
     public void verifyProductButtonIsEnable(AppiumDriver driver)
     {
         ReusableMethods.waitForElementVisibility(productButton,driver);
@@ -21,6 +23,7 @@ public class ProductPage {
         assertTrue(ReusableMethods.verifyElementsPresent(dealerPrice,driver),"Dealer price is unavailable");
         assertTrue(ReusableMethods.getTextFromMobileElements(productName,driver).contains("FastPower Easy Bike Battery - 12 V"),"No product name found");
         ReusableMethods.click(backButton,driver);
+        softAssert.assertAll();
     }
     public void verifyAddToCartFunctionality(AppiumDriver driver)
     {
@@ -35,7 +38,8 @@ public class ProductPage {
         ReusableMethods.click(backButton,driver);
         ReusableMethods.click(checkBoxFirstProduct,driver);
         ReusableMethods.click(checkBoxSecondProduct,driver);
-       assertTrue(ReusableMethods.getTextFromMobileElements(productQuantity,driver).contains("0"),"Item failed to remove");
+        assertTrue(ReusableMethods.getTextFromMobileElements(productQuantity,driver).contains("0"),"Item failed to remove");
+        softAssert.assertAll();
 
     }
     public void verifyCheckOutFunctionality(AppiumDriver driver)
@@ -55,6 +59,7 @@ public class ProductPage {
         assertTrue(ReusableMethods.getTextFromMobileElements(confirmationMessage,driver).contains("নিশ্চিত হয়েছে"),"Order Failed to placed");
         assertTrue(ReusableMethods.ButtonEnableOrNot(backHomeButton,driver),"Back Home Button is not Enable");
         ReusableMethods.click(backHomeButton,driver);
+        softAssert.assertAll();
 
     }
 }

@@ -29,5 +29,4 @@ public class TC004StockPageTest extends Base{
         stockObj.verifyStockHistory(driver);
     }
 
-
 }

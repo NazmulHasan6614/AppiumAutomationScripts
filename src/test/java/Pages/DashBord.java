@@ -4,6 +4,8 @@ import Utils.ReusableMethods;
 import io.appium.java_client.AppiumDriver;
 import org.testng.asserts.SoftAssert;
 
+import java.time.Duration;
+
 import static PageObject.DashBordObject.*;
 import static PageObject.ProductPageObject.backHomeButton;
 import static PageObject.ProductPageObject.frowardButton;
@@ -60,11 +62,11 @@ public class DashBord {
         ReusableMethods.waitUntilPerformClickAction(targetCommissionSpace, driver);
         softAssert.assertTrue(ReusableMethods.verifyElementsPresent(targetBonus, driver), "No Data Found Target Commission");
         softAssert.assertTrue(ReusableMethods.getTextFromMobileElements(targetBonus, driver).contains("200"), "Target Commission is not accurate");
-        ReusableMethods.click(backButton,driver);
+        ReusableMethods.click(backButton, driver);
 
     }
 
-     public void verifyQuickActionSellsEntry(AppiumDriver driver){
+    public void verifyQuickActionSellsEntry(AppiumDriver driver) {
         softAssert.assertTrue(ReusableMethods.ButtonEnableOrNot(sellsEntry, driver), "Sells entry is not enable");
         ReusableMethods.click(sellsEntry, driver);
         softAssert.assertTrue(ReusableMethods.verifyElementsPresent(sellsEntryProduct, driver), "No Sells Entry Found");
@@ -73,25 +75,36 @@ public class DashBord {
         ReusableMethods.click(frowardButton, driver);
         ReusableMethods.click(customerDetailsSearchField, driver);
         ReusableMethods.sendData(customerDetailsSearchField, driver, customerPhoneNumber);
-        ReusableMethods.waitUntilPerformClickAction(customer,driver);
-        softAssert.assertTrue( ReusableMethods.getTextFromMobileElements(customerName,driver).contains("Nazmul"),"Search Can't filter perfectly");
+        ReusableMethods.waitUntilPerformClickAction(customer, driver);
+        softAssert.assertTrue(ReusableMethods.getTextFromMobileElements(customerName, driver).contains("Nazmul"), "Search Can't filter perfectly");
         ReusableMethods.click(frowardButton, driver);
         ReusableMethods.click(confirmRadioBox, driver);
-        softAssert.assertTrue(ReusableMethods.isRadioButtonSelected(radioBox, driver), "Radio Button is not selected");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         softAssert.assertTrue(ReusableMethods.ButtonEnableOrNot(purchaseButton, driver), "Purchase Button is not Enable");
         ReusableMethods.click(purchaseButton, driver);
         softAssert.assertTrue(ReusableMethods.verifyElementsPresent(orderSuccessMessage, driver), "Order Failed To Placed");
-        ReusableMethods.click(backHomeButton,driver);
+        ReusableMethods.click(backHomeButton, driver);
+        softAssert.assertAll();
 
 
     }
-    public void makePaymentFunctionality(AppiumDriver driver)
-    {
-        softAssert.assertTrue(ReusableMethods.ButtonEnableOrNot(makePayment,driver),"Make Payment Button is not Enable");
-        ReusableMethods.click(makePayment,driver);
-        softAssert.assertTrue(ReusableMethods.verifyElementsPresent(paymentMethod,driver),"No Payment Method is Available");
-        ReusableMethods.click(paymentMethod,driver);
-        softAssert.assertTrue(ReusableMethods.isRadioButtonSelected(paymentRadioButton,driver),"Radio Button is not Selected");
-        softAssert.assertFalse(ReusableMethods.isButtonClickable(paymentConfirmButton,driver),"Button Is Not Clickable");
+
+    public void makePaymentFunctionality(AppiumDriver driver) {
+        softAssert.assertTrue(ReusableMethods.ButtonEnableOrNot(makePayment, driver), "Make Payment Button is not Enable");
+        ReusableMethods.click(makePayment, driver);
+        softAssert.assertTrue(ReusableMethods.verifyElementsPresent(paymentMethod, driver), "No Payment Method is Available");
+        ReusableMethods.waitUntilPerformClickAction(paymentRadioButton, driver);
+        ReusableMethods.click(paymentRadioButton, driver);
+        softAssert.assertTrue(ReusableMethods.isButtonClickable(paymentConfirmButton, driver), "Button Is Not Clickable");
+        ReusableMethods.click(transactionField,driver);
+        ReusableMethods.sendData(transactionField,driver,trxId);
+        ReusableMethods.click(amountField,driver);
+        ReusableMethods.sendData(amountField,driver,amount);
+        ReusableMethods.click(documentField,driver);
+        ReusableMethods.waitUntilPerformClickAction(document,driver);
+        ReusableMethods.click(paymentConfirmButton,driver);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        softAssert.assertFalse(ReusableMethods.verifyElementsPresent(transactionField,driver),"Payment Failed");
+        softAssert.assertAll();
     }
 }

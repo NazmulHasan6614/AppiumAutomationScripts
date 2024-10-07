@@ -20,5 +20,5 @@ public class LoginPageObject {
     public static String validPassword="12345678";
     public static String inValidEmail="nazmul@gmail.com";
     public static String inValidPassword="647575374";
-    public static String inValidEmail2="h@gmail.com";
+
 }
